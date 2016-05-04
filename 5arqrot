@@ -1,0 +1,15 @@
+#!/bin/sh
+
+FICH=`basename $1`
+
+if test -e $2/$FICH.1.tgz
+then
+    cp $2/$FICH.1.tgz $2/$FICH.2.tgz
+fi
+
+if [ -e $2/$FICH.1.tgz ]
+then
+    cp $2/$FICH.tgz $2/$FICH.1.tgz
+fi
+
+tar -czf $2/$FICH.tgz $1

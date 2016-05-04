@@ -1,0 +1,15 @@
+#!/bin/sh
+
+FICH=`basename $PWD`
+
+if test -e ~/arquivos/$FICH.1.tgz
+then
+    cp ~/arquivos/$FICH.1.tgz ~/arquivos/$FICH.2.tgz
+fi
+
+if[~/arquivos/$FICH.1.tgz -e]
+then
+    cp ~/arquivos/$FICH.tgz ~/arquivos/$FICH.1.tg
+fi
+
+tar -czf ~/aulas/$FICH.tgz $PWD

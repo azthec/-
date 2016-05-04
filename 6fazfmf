@@ -1,0 +1,17 @@
+#!/bin/sh
+
+COUNT=0
+
+nome=`basename $1`.fmf
+
+echo "# FMF info" > $nome
+echo `date` >> $nome
+echo $1 >> $nome 
+
+for i in $1/*
+do
+    echo `basename $i` ":" `file -b $i` >> $nome
+    COUNT=`expr $COUNT + 1`
+done
+
+echo "# FMF info" $COUNT >> $nome

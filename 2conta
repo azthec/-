@@ -1,0 +1,11 @@
+#!/bin/sh
+
+CONT=0
+for i in $*
+do
+    if [ -d $i ]
+    then
+	CONT=`expr $CONT + 1`
+    fi
+done
+    echo $CONT

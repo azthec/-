@@ -1,0 +1,35 @@
+#!/bin/sh
+
+COUNT=0
+FCOUNT=0
+
+if test $# = 2
+then
+
+    while
+    read texto
+    do
+
+	COUNT=`expr $COUNT + 1`
+	case $texto in
+	    [0123456789]*)
+		echo $texto >> $1
+		;;
+	    [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]*)  
+		echo $texto >> $2
+		;;
+
+	    *)
+		FCOUNT=`expr $FCOUNT + 1`
+		;;
+
+	esac
+    done
+
+else
+    echo "$0: numero de argumentos errado"
+    exit 1
+fi
+
+echo $FCOUNT
+echo $COUNT

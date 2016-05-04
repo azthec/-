@@ -1,0 +1,19 @@
+#!/bin/sh
+
+mkdir ~/LIXO
+FLAG=0
+
+for i in $*
+do
+    if [ $i = "-f" ]
+    then
+	FLAG=1
+    else
+	mv $i ~/LIXO/
+    fi
+done
+
+if [ FLAG ]
+then
+	rm ~/LIXO/*
+fi
